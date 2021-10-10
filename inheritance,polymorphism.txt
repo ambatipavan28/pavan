@@ -1,0 +1,132 @@
+Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. It is an important part of OOPs (Object Oriented programming system).
+The idea behind inheritance in Java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of the parent class. Moreover, you can add new methods and fields in your current class also.
+Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
+
+class Animal{  
+void eat(){System.out.println("eating...");}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println("barking...");}  
+}  
+class BabyDog extends Dog{  
+void weep(){System.out.println("weeping...");}  
+}  
+class TestInheritance2{  
+public static void main(String args[]){  
+BabyDog d=new BabyDog();  
+d.weep();  
+d.bark();  
+d.eat();  
+}}  
+What is Polymorphism in Java?
+The derivation of the word Polymorphism is from two different Greek words- poly and morphs. “Poly” means numerous, and “Morphs” means forms. So polymorphism means innumerable forms. Polymorphism is one of the most significant features of Object-Oriented Programming.
+Polymorphism in Java Example
+A superclass named “Shapes” has a method “area()”. Subclasses of “Shapes” can be “Triangle”, “circle”, “Rectangle”, etc. Each subclass has its way of calculating area. Using Inheritance and Polymorphism, the subclasses can use the “area()” method to find the area’s formula for that shape.
+class Shapes {
+  public void area() {
+    System.out.println("The formula for area of ");
+  }
+}
+class Triangle extends Shapes {
+  public void area() {
+    System.out.println("Triangle is ½ * base * height ");
+  }
+}
+class Circle extends Shapes {
+  public void area() {
+    System.out.println("Circle is 3.14 * radius * radius ");
+  }
+}
+class Main {
+  public static void main(String[] args) {
+    Shapes myShape = new Shapes();  // Create a Shapes object
+    Shapes myTriangle = new Triangle();  // Create a Triangle object
+    Shapes myCircle = new Circle();  // Create a Circle object
+    myShape.area();
+    myTriangle.area();
+    myShape.area();
+    myCircle.area();
+  }
+}
+
+Output:
+
+The formula for the area of Triangle is ½ * base * height
+The formula for the area of the Circle is 3.14 * radius * radius
+
+Polymorphism in Java can be performed by two different methods:
+
+Method Overloading
+Method Overriding
+
+Example of Method Overloading in Java
+class Shapes {
+  public void area() {
+    System.out.println("Find area ");
+  }
+public void area(int r) {
+    System.out.println("Circle area = "+3.14*r*r);
+  }
+ 
+public void area(double b, double h) {
+    System.out.println("Triangle area="+0.5*b*h);
+  }
+public void area(int l, int b) {
+    System.out.println("Rectangle area="+l*b);
+  }
+ 
+ 
+}
+ 
+class Main {
+  public static void main(String[] args) {
+    Shapes myShape = new Shapes();  // Create a Shapes object
+     
+    myShape.area();
+    myShape.area(5);
+    myShape.area(6.0,1.2);
+    myShape.area(6,2);
+     
+  }
+}
+Output:
+
+Find area
+Circle area = 78.5
+Triangle area=3.60
+Rectangle area=12
+
+Example of Method Overriding in Java
+class Vehicle{  
+  //defining a method  
+  void run(){System.out.println("Vehicle is moving");}  
+}  
+//Creating a child class  
+class Car2 extends Vehicle{  
+  //defining the same method as in the parent class  
+  void run(){System.out.println("car is running safely");}  
+  
+  public static void main(String args[]){  
+  Car2 obj = new Car2();//creating object  
+  obj.run();//calling method  
+  }  
+}  
+Output:
+
+Car is running safely
+
+Strings in Java
+
+Strings in Java are Objects that are backed internally by a char array. Since arrays are immutable(cannot grow), Strings are immutable as well. Whenever a change to a String is made, an entirely new String is created. 
+
+StringBuffer: 
+StringBuffer is a peer class of String that provides much of the functionality of strings. The string represents fixed-length, immutable character sequences while StringBuffer represents growable and writable character sequences.
+Syntax:
+StringBuffer s = new StringBuffer("GeeksforGeeks");
+StringBuilder: 
+The StringBuilder in Java represents a mutable sequence of characters. Since the String Class in Java creates an immutable sequence of characters, the StringBuilder class provides an alternate to String Class, as it creates a mutable sequence of characters.
+Syntax:
+StringBuilder str = new StringBuilder();
+str.append("GFG");
+StringTokenizer: 
+StringTokenizer class in Java is used to break a string into tokens. 
