@@ -1,0 +1,213 @@
+What is RDBMS?
+RDBMS stands for Relational Database Management System. RDBMS is the basis for SQL, and for all modern database systems like MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
+
+A Relational database management system (RDBMS) is a database management system (DBMS) that is based on the relational model as introduced by E. F. Codd.
+
+What is a table?
+The data in an RDBMS is stored in database objects which are called as tables. This table is basically a collection of related data entries and it consists of numerous columns and rows.
+
+Remember, a table is the most common and simplest form of data storage in a relational database. The following program is an example of a CUSTOMERS table −
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+What is a field?
+Every table is broken up into smaller entities called fields. The fields in the CUSTOMERS table consist of ID, NAME, AGE, ADDRESS and SALARY.
+
+A field is a column in a table that is designed to maintain specific information about every record in the table.
+
+What is a Record or a Row?
+A record is also called as a row of data is each individual entry that exists in a table. For example, there are 7 records in the above CUSTOMERS table. Following is a single row of data or record in the CUSTOMERS table −
+
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
++----+----------+-----+-----------+----------+
+A record is a horizontal entity in a table.
+
+What is a column?
+A column is a vertical entity in a table that contains all information associated with a specific field in a table.
+
+For example, a column in the CUSTOMERS table is ADDRESS, which represents location description and would be as shown below −
+
++-----------+
+| ADDRESS   |
++-----------+
+| Ahmedabad |
+| Delhi     |
+| Kota      |
+| Mumbai    |
+| Bhopal    |
+| MP        |
+| Indore    |
++----+------+
+What is a NULL value?
+A NULL value in a table is a value in a field that appears to be blank, which means a field with a NULL value is a field with no value.
+
+It is very important to understand that a NULL value is different than a zero value or a field that contains spaces. A field with a NULL value is the one that has been left blank during a record creation.
+
+SQL Constraints
+Constraints are the rules enforced on data columns on a table. These are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the database.
+
+Constraints can either be column level or table level. Column level constraints are applied only to one column whereas, table level constraints are applied to the entire table.
+
+Following are some of the most commonly used constraints available in SQL −
+
+NOT NULL Constraint − Ensures that a column cannot have a NULL value.
+
+DEFAULT Constraint − Provides a default value for a column when none is specified.
+
+UNIQUE Constraint − Ensures that all the values in a column are different.
+
+PRIMARY Key − Uniquely identifies each row/record in a database table.
+
+FOREIGN Key − Uniquely identifies a row/record in any another database table.
+
+CHECK Constraint − The CHECK constraint ensures that all values in a column satisfy certain conditions.
+
+INDEX − Used to create and retrieve data from the database very quickly.
+
+Data Integrity
+The following categories of data integrity exist with each RDBMS −
+
+Entity Integrity − There are no duplicate rows in a table.
+
+Domain Integrity − Enforces valid entries for a given column by restricting the type, the format, or the range of values.
+
+Referential integrity − Rows cannot be deleted, which are used by other records.
+
+User-Defined Integrity − Enforces some specific business rules that do not fall into entity, domain or referential integrity.
+
+Database Normalization
+Database normalization is the process of efficiently organizing data in a database. There are two reasons of this normalization process −
+
+Eliminating redundant data, for example, storing the same data in more than one table.
+
+Ensuring data dependencies make sense.
+
+Both these reasons are worthy goals as they reduce the amount of space a database consumes and ensures that data is logically stored. Normalization consists of a series of guidelines that help guide you in creating a good database structure.
+
+Normalization guidelines are divided into normal forms; think of a form as the format or the way a database structure is laid out. The aim of normal forms is to organize the database structure, so that it complies with the rules of first normal form, then second normal form and finally the third normal form.
+
+It is your choice to take it further and go to the fourth normal form, fifth normal form and so on, but in general, the third normal form is more than enough.
+
+First Normal Form (1NF)
+Second Normal Form (2NF)
+Third Normal Form (3NF)
+
+DATABASE OBJECTIVE.
+
+Database management systems have made a revolution in modern society. Business houses are making huge profits just because of database management system. DBMS provides a lot benefits in all spheres of human activity � the objectives are manifold. The main objectives of database management system are data availability, data integrity, data security, and data independence.
+
+Data Availability: Data availability refers to the fact that the data are made available:
+
+To a wide variety of users
+In a meaningful format
+At reasonable cost
+With ease of access
+When and where required
+
+Data availability defines the degree or extent to which data is readily usable along with the necessary IT and management procedures, tools and technologies required to enable, manage and continue to make data available. Data availability also refers to data acquisition by the system. It also refers to how data can be drawn from different sources, different types and different formats. It refers to format conversions before becoming part of a project. Much data needs to be pre-processed before becoming part of the database.
+
+Data availability is a term used by computer storage manufacturers and storage service providers (SSPs) to describe products and services that ensure that data continues to be available at a required level of performance in situations ranging from �normal� through �disastrous�. Anytime a server loses power, for example, it has to reboot, recover data and repair corrupted data. The time it takes to recover, known as the mean time to recover (MTR), could be minutes, hours or days. Data availability is also affected by MTR.
+
+Data Integrity: Integrity is a critical aspect to the design, implementation and usage of any system which stores, processes, or retrieves data. Data integrity refers to the correctness of the data in the database. In other words, how reliable is the data available in the database. Integrity also means your data is authentic, accurate and consistent. DBMSs have various validity checks that make your data completely accurate and consistent. Data integrity is the maintenance and assurance of accuracy and consistency of data over its entire life-cycle. Data integrity is implemented within a database by a suitable design, and authenticating the data by using error checking and validation routines. For example, to maintain data integrity numeric columns/cells should not accept alphabetic data.
+
+As a state or condition, Data Integrity is also a measure of the validity and fidelity of a data object. The DBMS should also be able to verify that data has remained unaltered in transit. As a function related to security, data integrity maintains information exactly as it was inputted, and is verifiable to confirm its reliability. Data undergoes any number of operations in support of decision-making, such as capture, storage, retrieval, update and transfer. Data integrity can also be a performance measure during these operations based on the detected error rate. Data must be kept free from corruption, modification or unauthorized disclosure. Inaccuracies in data can occur either accidentally (e.g .through programming errors), or maliciously (e.g. through breaches or hacks). Database security professionals employ a number of practices to assure data integrity, including:
+
+Data encryption, which locks data by encryption
+Data backup, which stores a copy of data in an alternate location
+Access controls, including assignment of read/write privileges
+Input validation, to prevent incorrect data entry
+Data validation, to certify uncorrupted transmission
+
+Data Security: Data security refers to protective digital privacy measures that are applied to prevent unauthorized access to computers, websites, databases or parts thereof. Data security refers to the fact that only authorized users can access the data. Data security can be enforced by passwords. If two separate users are accessing a particular data at the same time, the DBMS must not allow them to make conflicting changes. Data security protects data from corruption. It also refers to the collective measures used to protect and secure a database and its management software from illegitimate use and malicious threats and attacks. It includes the processes, tools and methodologies that ensure security within a database environment. Data security is an essential aspect of IT for organizations of every size and type.
+
+For various reasons, much of the data handled by database management systems is stored in the cloud. Here are five data security tips to help you tackle issues of cloud privacy:
+
+Avoid storing sensitive information in the cloud.
+Read the user agreement to find out how your cloud service storage works.
+Be serious about passwords.
+Encrypt.
+Use an encrypted cloud service.
+
+Data Independence: One of the main objectives of DBMS is to facilitate sharing of a database by current and future applications. The DBMS should not be tailored to a specific platform. One should be able to run DBMS on any platform. DBMS must ensure data independence for application programs.
+
+A database system normally contains a lot of data in addition to users� data. For example, it stores data about data (known as metadata) which helps in locating the data easily. For example, a table (relation) stored in the database and all its constraints, applied on that relation. As the database expands over time, this metadata needs to be updated too. Data independence refers to the ease with which the metadata can be updated without affecting the data itself. Data independence is the mechanism which dissociates the DBMS from the actual data stored on the disk. If we make some changes on table format, it should not change the data residing on the disk. Data independence also refers to the ease with which we can change the physical data without impacting the metadata. For example, if� we want to change or upgrade the storage system itself � like replacing a hard-drive with a SSD � it should not have any effect on the logical data or schemas. Data independence allows:
+
+Change of database without affecting application programs
+Change of hardware or system software without affecting application programs
+Sharing of data by different applications by providing views appropriate for the application
+Control of Redundancy � Avoid duplication
+
+Types of keys in DBMS
+
+Primary Key – A primary is a column or set of columns in a table that uniquely identifies tuples (rows) in that table.
+
+Super Key – A super key is a set of one of more columns (attributes) to uniquely identify rows in a table.
+
+Candidate Key – A super key with no redundant attribute is known as candidate key
+
+Alternate Key – Out of all candidate keys, only one gets selected as primary key, remaining keys are known as alternate or secondary keys.
+
+Composite Key – A key that consists of more than one attribute to uniquely identify rows (also known as records & tuples) in a table is called composite key.
+
+Foreign Key – Foreign keys are the columns of a table that points to the primary key of another table. They act as a cross-reference between tables.
+
+What is DDL?
+Data Definition Language helps you to define the database structure or schema. Let’s learn about DDL commands with syntax.
+
+Five types of DDL commands in SQL are:
+
+CREATE
+CREATE statements is used to define the database structure schema:
+
+Syntax:
+
+CREATE TABLE TABLE_NAME (COLUMN_NAME DATATYPES[,....]); 
+For example:
+
+Create database university;
+Create table students;
+Create view for_students;
+DROP
+Drops commands remove tables and databases from RDBMS.
+
+Syntax
+
+DROP TABLE ;
+For example:
+
+Drop object_type object_name;
+Drop database university;
+Drop table student;
+ALTER
+Alters command allows you to alter the structure of the database.
+
+Syntax:
+
+To add a new column in the table
+
+ALTER TABLE table_name ADD column_name COLUMN-definition; 
+To modify an existing column in the table:
+
+ALTER TABLE MODIFY(COLUMN DEFINITION....);  
+For example:
+
+Alter table guru99 add subject varchar; 
+TRUNCATE:
+This command used to delete all the rows from the table and free the space containing the table.
+
+Syntax:
+
+TRUNCATE TABLE table_name;  
+Example:
+
+TRUNCATE table students;

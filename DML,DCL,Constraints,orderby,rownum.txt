@@ -1,0 +1,140 @@
+DML(Data Manipulation Language): 
+The SQL commands that deals with the manipulation of data present in the database belong to DML or Data Manipulation Language and this includes most of the SQL statements. It is the component of the SQL statement that controls access to data and to the database. Basically, DCL statements are grouped with DML statements.
+
+List of DML commands: 
+
+INSERT : It is used to insert data into a table.
+UPDATE: It is used to update existing data within a table.
+DELETE : It is used to delete records from a database table.
+LOCK: Table control concurrency.
+CALL: Call a PL/SQL or JAVA subprogram.
+EXPLAIN PLAN: It describes the access path to data.
+DCL (Data Control Language): 
+DCL includes commands such as GRANT and REVOKE which mainly deal with the rights, permissions, and other controls of the database system. 
+
+List of  DCL commands: 
+
+GRANT: This command gives users access privileges to the database.
+REVOKE: This command withdraws the user’s access privileges given by using the GRANT command.
+Though many resources claim there to be another category of SQL clauses TCL – Transaction Control Language. So we will see in detail about TCL as well. TCL commands deal with the transaction within the database. 
+
+List of TCL commands: 
+ 
+
+COMMIT: Commits a Transaction.
+ROLLBACK: Rollbacks a transaction in case of any error occurs.
+SAVEPOINT:Sets a savepoint within a transaction.
+SET TRANSACTION: Specify characteristics for the transaction.
+ 
+Constraints enforce limits to the data or type of data that can be inserted/updated/deleted from a table. The whole purpose of constraints is to maintain the data integrity during an update/delete/insert into a table. In this tutorial we will learn several types of constraints that can be created in RDBMS.
+
+Types of constraints
+NOT NULL
+UNIQUE
+DEFAULT
+CHECK
+Key Constraints – PRIMARY KEY, FOREIGN KEY
+Domain constraints
+Mapping constraints
+NOT NULL:
+NOT NULL constraint makes sure that a column does not hold NULL value. When we don’t provide value for a particular column while inserting a record into a table, it takes NULL value by default. By specifying NULL constraint, we can be sure that a particular column(s) cannot have NULL values.
+
+Example:
+
+CREATE TABLE STUDENT(
+ROLL_NO INT NOT NULL,
+STU_NAME VARCHAR (35) NOT NULL,
+STU_AGE INT NOT NULL,
+STU_ADDRESS VARCHAR (235),
+PRIMARY KEY (ROLL_NO)
+);
+Read more about this constraint here.
+
+UNIQUE:
+UNIQUE Constraint enforces a column or set of columns to have unique values. If a column has a unique constraint, it means that particular column cannot have duplicate values in a table.
+
+CREATE TABLE STUDENT(
+ROLL_NO INT NOT NULL,
+STU_NAME VARCHAR (35) NOT NULL UNIQUE,
+STU_AGE INT NOT NULL,
+STU_ADDRESS VARCHAR (35) UNIQUE,
+PRIMARY KEY (ROLL_NO)
+);
+Read more about it here.
+
+DEFAULT:
+The DEFAULT constraint provides a default value to a column when there is no value provided while inserting a record into a table.
+
+CREATE TABLE STUDENT(
+ROLL_NO   INT  NOT NULL,
+STU_NAME VARCHAR (35) NOT NULL,
+STU_AGE INT NOT NULL,
+EXAM_FEE INT  DEFAULT 10000,
+STU_ADDRESS VARCHAR (35) ,
+PRIMARY KEY (ROLL_NO)
+);
+Read more: Default constraint
+
+CHECK:
+This constraint is used for specifying range of values for a particular column of a table. When this constraint is being set on a column, it ensures that the specified column must have the value falling in the specified range.
+
+CREATE TABLE STUDENT(
+ROLL_NO   INT  NOT NULL CHECK(ROLL_NO >1000) ,
+STU_NAME VARCHAR (35)  NOT NULL,
+STU_AGE INT  NOT NULL,
+EXAM_FEE INT DEFAULT 10000,
+STU_ADDRESS VARCHAR (35) ,
+PRIMARY KEY (ROLL_NO)
+);
+In the above example we have set the check constraint on ROLL_NO column of STUDENT table. Now, the ROLL_NO field must have the value greater than 1000.
+
+Key constraints:
+PRIMARY KEY:
+Primary key uniquely identifies each record in a table. It must have unique values and cannot contain nulls. In the below example the ROLL_NO field is marked as primary key, that means the ROLL_NO field cannot have duplicate and null values.
+
+CREATE TABLE STUDENT(
+ROLL_NO   INT  NOT NULL,
+STU_NAME VARCHAR (35)  NOT NULL UNIQUE,
+STU_AGE INT NOT NULL,
+STU_ADDRESS VARCHAR (35) UNIQUE,
+PRIMARY KEY (ROLL_NO)
+);
+FOREIGN KEY:
+Foreign keys are the columns of a table that points to the primary key of another table. They act as a cross-reference between tables.
+Read more about it here.
+
+Domain constraints:
+Each table has certain set of columns and each column allows a same type of data, based on its data type. The column does not accept values of any other data type.
+Domain constraints are user defined data type and we can define them like this:
+Domain Constraint = data type + Constraints (NOT NULL / UNIQUE / PRIMARY KEY / FOREIGN KEY / CHECK / DEFAULT)
+
+The SQL ORDER BY Keyword
+
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
+ORDER BY Syntax
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+
+The SQL SELECT DISTINCT Statement
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+
+Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.
+
+SELECT DISTINCT Syntax
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+
+ROWNUM Pseudocolumn
+For each row returned by a query, the ROWNUM pseudocolumn returns a number indicating the order in which Oracle selects the row from a table or set of joined rows. The first row selected has a ROWNUM of 1, the second has 2, and so on.
+
+You can use ROWNUM to limit the number of rows returned by a query, as in this example:
+
+SELECT * FROM employees WHERE ROWNUM < 10;
+
+If an ORDER BY clause follows ROWNUM in the same query, then the rows will be reordered by the ORDER BY clause. The results can vary depending on the way the rows are accessed. For example, if the ORDER BY clause causes Oracle to use an index to access the data, then Oracle may retrieve the rows in a different order than without the index. Therefore, the following statement will not have the same effect as the preceding example:
+
+SELECT * FROM employees WHERE ROWNUM < 11 ORDER BY last_name;

@@ -1,0 +1,266 @@
+SQL CLAUSES.
+
+1. GROUP BY
+SQL GROUP BY statement is used to arrange identical data into groups. The GROUP BY statement is used with the SQL SELECT statement.
+The GROUP BY statement follows the WHERE clause in a SELECT statement and precedes the ORDER BY clause.
+The GROUP BY statement is used with aggregation function.
+Syntax
+
+SELECT column  
+FROM table_name  
+WHERE conditions   
+GROUP BY column  
+ORDER BY column  
+Sample table:
+
+PRODUCT_MAST
+
+PRODUCT	COMPANY	QTY	RATE	COST
+Item1	Com1	2	10	20
+Item2	Com2	3	25	75
+Item3	Com1	2	30	60
+Item4	Com3	5	10	50
+Item5	Com2	2	20	40
+Item6	Cpm1	3	25	75
+Item7	Com1	5	30	150
+Item8	Com1	3	10	30
+Item9	Com2	2	25	50
+Item10	Com3	4	30	120
+Example:
+
+SELECT COMPANY, COUNT(*)  
+FROM PRODUCT_MAST   
+GROUP BY COMPANY;  
+Output:
+
+Com1   5
+Com2   3
+Com3   2
+2. HAVING
+HAVING clause is used to specify a search condition for a group or an aggregate.
+Having is used in a GROUP BY clause. If you are not using GROUP BY clause then you can use HAVING function like a WHERE clause.
+Syntax:
+
+SELECT column1, column2   
+FROM table_name  
+WHERE conditions   
+GROUP BY column1, column2   
+HAVING conditions  
+ORDER BY column1, column2;  
+Example:
+
+SELECT COMPANY, COUNT(*)  
+FROM PRODUCT_MAST   
+GROUP BY COMPANY  
+HAVING COUNT(*)>2;  
+Output:
+
+Com1   5
+Com2   3
+3. ORDER BY
+The ORDER BY clause sorts the result-set in ascending or descending order.
+It sorts the records in ascending order by default. DESC keyword is used to sort the records in descending order.
+Syntax:
+
+SELECT column1, column2  
+FROM table_name  
+WHERE condition  
+ORDER BY column1, column2... ASC|DESC;  
+Where
+
+ASC: It is used to sort the result set in ascending order by expression.
+
+DESC: It sorts the result set in descending order by expression.
+
+Example: Sorting Results in Ascending Order
+Table:
+
+CUSTOMER
+
+CUSTOMER_ID	NAME	ADDRESS
+12	Kathrin	US
+23	David	Bangkok
+34	Alina	Dubai
+45	John	UK
+56	Harry	US
+Enter the following SQL statement:
+
+SELECT *  
+FROM CUSTOMER  
+ORDER BY NAME;  
+Output:
+
+CUSTOMER_ID	NAME	ADDRESS
+34	Alina	Dubai
+23	David	Bangkok
+56	Harry	US
+45	John	UK
+12	Kathrin	US
+Example: Sorting Results in Descending Order
+Using the above CUSTOMER table
+
+SELECT *  
+FROM CUSTOMER  
+ORDER BY NAME DESC;  
+Output:
+
+CUSTOMER_ID	NAME	ADDRESS
+12	Kathrin	US
+45	John	UK
+56	Harry	US
+23	David	Bangkok
+34	Alina	Dubai
+
+AGGREGATE FUNCTIONS:
+
+1. COUNT FUNCTION
+COUNT function is used to Count the number of rows in a database table. It can work on both numeric and non-numeric data types.
+COUNT function uses the COUNT(*) that returns the count of all the rows in a specified table. COUNT(*) considers duplicate and Null.
+Syntax
+
+COUNT(*)  
+or  
+COUNT( [ALL|DISTINCT] expression )  
+Sample table:
+
+PRODUCT_MAST
+
+PRODUCT	COMPANY	QTY	RATE	COST
+Item1	Com1	2	10	20
+Item2	Com2	3	25	75
+Item3	Com1	2	30	60
+Item4	Com3	5	10	50
+Item5	Com2	2	20	40
+Item6	Cpm1	3	25	75
+Item7	Com1	5	30	150
+Item8	Com1	3	10	30
+Item9	Com2	2	25	50
+Item10	Com3	4	30	120
+Example: COUNT()
+
+SELECT COUNT(*)  
+FROM PRODUCT_MAST;  
+Output:
+
+10
+Example: COUNT with WHERE
+
+SELECT COUNT(*)  
+FROM PRODUCT_MAST;  
+WHERE RATE>=20;  
+Output:
+
+7
+Example: COUNT() with DISTINCT
+
+SELECT COUNT(DISTINCT COMPANY)  
+FROM PRODUCT_MAST;    
+Output:
+
+3
+Example: COUNT() with GROUP BY
+
+SELECT COMPANY, COUNT(*)  
+FROM PRODUCT_MAST  
+GROUP BY COMPANY;  
+Output:
+
+Com1    5
+Com2    3
+Com3    2
+Example: COUNT() with HAVING
+
+SELECT COMPANY, COUNT(*)  
+FROM PRODUCT_MAST  
+GROUP BY COMPANY  
+HAVING COUNT(*)>2;  
+Output:
+
+Com1    5
+Com2    3
+2. SUM Function
+Sum function is used to calculate the sum of all selected columns. It works on numeric fields only.
+
+Syntax
+
+SUM()  
+or  
+SUM( [ALL|DISTINCT] expression )  
+Example: SUM()
+
+SELECT SUM(COST)  
+FROM PRODUCT_MAST;  
+Output:
+
+670
+Example: SUM() with WHERE
+
+SELECT SUM(COST)  
+FROM PRODUCT_MAST  
+WHERE QTY>3;  
+Output:
+
+320
+Example: SUM() with GROUP BY
+
+SELECT SUM(COST)  
+FROM PRODUCT_MAST  
+WHERE QTY>3  
+GROUP BY COMPANY;  
+Output:
+
+Com1    150
+Com2    170
+Example: SUM() with HAVING
+
+SELECT COMPANY, SUM(COST)  
+FROM PRODUCT_MAST  
+GROUP BY COMPANY  
+HAVING SUM(COST)>=170;  
+Output:
+
+Com1    335
+Com3    170
+3. AVG function
+The AVG function is used to calculate the average value of the numeric type. AVG function returns the average of all non-Null values.
+
+Syntax
+
+AVG()  
+or  
+AVG( [ALL|DISTINCT] expression )  
+Example:
+
+SELECT AVG(COST)  
+FROM PRODUCT_MAST;  
+Output:
+
+67.00
+4. MAX Function
+MAX function is used to find the maximum value of a certain column. This function determines the largest value of all selected values of a column.
+
+Syntax
+
+MAX()  
+or  
+MAX( [ALL|DISTINCT] expression )  
+Example:
+
+SELECT MAX(RATE)  
+FROM PRODUCT_MAST;  
+30 
+5. MIN Function
+MIN function is used to find the minimum value of a certain column. This function determines the smallest value of all selected values of a column.
+
+Syntax
+
+MIN()  
+or  
+MIN( [ALL|DISTINCT] expression )  
+Example:
+
+SELECT MIN(RATE)  
+FROM PRODUCT_MAST;  
+Output:
+
+10
